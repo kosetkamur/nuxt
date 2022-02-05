@@ -3,11 +3,17 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - exam-app',
-    title: 'exam-app',
+    titleTemplate: '%s - farm',
+    title: 'farm',
     htmlAttrs: {
       lang: 'en'
     },
+
+    target: 'static',
+    router: {
+      base: '/web_exam/'
+    },
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -15,11 +21,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      {  
-        as: 'style',  
-        rel: 'stylesheet preload prefetch',  
-        href: '/fonts/fonts.css',  
-      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -42,7 +44,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
   ],
+
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {},
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
