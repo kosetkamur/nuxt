@@ -1,0 +1,73 @@
+<template>
+<div>
+    <form @submit.prevent="submit">
+      <validation-provider
+        name="Name"
+      >
+        <v-text-field
+          v-model="name"
+          label="Name"
+          required
+        ></v-text-field>
+      </validation-provider>
+      <validation-provider
+        name="phoneNumber"
+      >
+        <v-text-field
+          v-model="phoneNumber"
+          label="Phone Number"
+          required
+        ></v-text-field>
+      </validation-provider>
+      <validation-provider
+        name="email"
+      >
+        <v-text-field
+          v-model="email"
+          :error-messages="errors"
+          label="E-mail"
+          required
+        ></v-text-field>
+      </validation-provider>
+      <validation-provider
+        v-slot="{ errors }"
+        name="select"
+        rules="required"
+      >
+        <v-select
+          v-model="select"
+          :items="items"
+          :error-messages="errors"
+          label="Select"
+          data-vv-name="select"
+          required
+        ></v-select>
+      </validation-provider>
+      <validation-provider
+        v-slot="{ errors }"
+        rules="required"
+        name="checkbox"
+      >
+        <v-checkbox
+          v-model="checkbox"
+          :error-messages="errors"
+          value="1"
+          label="Option"
+          type="checkbox"
+          required
+        ></v-checkbox>
+      </validation-provider>
+
+      <v-btn
+        class="mr-4"
+        type="submit"
+        :disabled="invalid"
+      >
+        submit
+      </v-btn>
+      <v-btn @click="clear">
+        clear
+      </v-btn>
+    </form>
+</div>
+</template>
